@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Identity</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<audio id="wrong">
+   <source src="wrong1.mp3" type="audio/mpeg">
+</audio>
+<audio id="right">
+   <source src="right1.mp3" type="audio/mpeg">
+</audio>
+
+  <section>
+
+  	<h1>Enter Your Name To See Identity</h1>
+
+  	<div class="centerdiv">
+  		<div class="details">
+  			<label>Enter Your Name </label><br>
+  			<input type="text" name="name" id="nameid">
+  		</div>
+  		<div class="imgdiv">
+  			<img src="welcome.jpg" width="250" height="250" alt="No Image Found" class="imgchange">
+  		</div>
+  		<div>
+  			<button class="btn btn-background-circle">Check</button>
+  		</div>
+  	</div>
+  </section>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+  <script type="text/javascript">
+       $(document).ready(function(){
+       		$('button').click(function(){
+       				const name = $('#nameid').val();
+                    var ar = document.getElementById('right');
+                    var aw = document.getElementById('wrong');
+
+       				if (name) {
+       				swal("Found!!","your avatar" , "success");
+       				ar.play();
+
+       				$('.imgchange').attr('src',`https://joeschmoe.io/api/v1/${name}`);
+       			   }else{
+       			   	swal("Not Found!!","any avatar" , "error");
+       			   	aw.play();
+       			   	$('.imgchange').attr('src',`down.jpg`);
+       			   }
+
+       		});
+       }); 	
+ 
+
+  </script>
+</body>
+</html>
